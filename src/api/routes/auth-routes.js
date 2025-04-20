@@ -1,6 +1,6 @@
 'use strict';
 import {getMe, authUser} from '../controllers/auth-controller.js';
-import {authenticateToken} from '../../middlewares/middleware.js';
+import {authenticateToken} from '../../middleware.js';
 import express from 'express';
 
 const authRouter = express.Router();

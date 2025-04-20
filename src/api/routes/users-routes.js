@@ -7,7 +7,7 @@ import {
   putUser,
   deleteUser,
 } from '../controllers/users-controller.js';
-import {authenticateToken} from '../../middlewares/middleware.js';
+import {authenticateToken} from '../../middleware.js';
 
 const userRouter = express.Router();
 
