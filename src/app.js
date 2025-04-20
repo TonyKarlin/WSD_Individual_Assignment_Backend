@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://127.0.0.1:5500', 'https://users.metropolia.fi'],
+    origin: ['http://10.120.32.74', 'https://users.metropolia.fi'],
     credentials: true,
   })
 );

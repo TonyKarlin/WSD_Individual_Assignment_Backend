@@ -22,10 +22,14 @@ POST http://localhost:3000/api/v1/auth/login
 content-type: application/json
 
 {
-  "username": "tonykar",
-  "password": "12345"
+  "username": "pena",
+  "password": "qwe123"
 }
 
 ### Get my user info
 GET http://localhost:3000/api/v1/auth/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOSwibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6InRvbnlrYXIiLCJlbWFpbCI6InRvbnlrYXJAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTE2NzgxMSwiZXhwIjoxNzQ1MjU0MjExfQ.HKLcJnrJlIkjCIYUCRisNQhw3CJuXAa1r88J0DwJvhY
+
+
+### Get users
+GET http://127.0.0.1:3000/api/v1/users
