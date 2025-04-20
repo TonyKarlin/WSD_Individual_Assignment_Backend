@@ -23,4 +23,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOSwib
 
 
 ### Get users
-GET http://10.120.32.74/app/api/v1/users
+GET https://10.120.32.74/web-page/api/v1/users
+
+### PUT users
+PUT https://10.120.32.74/web-page/api/v1/users
+content-type: application/json
+
+{
+  "username": "tonykar",
+  "password": "12345"
+}
