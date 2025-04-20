@@ -5,6 +5,7 @@ import {login} from '../models/user.js';
 const authUser = async (req, res) => {
   try {
     const {username, password} = req.body;
+    console.log('authUser', username, password);
 
     // Validate request body
     if (!username || !password) {
