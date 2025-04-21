@@ -13,13 +13,13 @@ POST https://10.120.32.74/web-page/api/v1/auth/login
 content-type: application/json
 
 {
-  "username": "tonykar",
-  "password": "12345"
+  "username": "bobi",
+  "password": "qwe123"
 }
 
 ### Get my user info
 GET https://10.120.32.74/web-page/api/v1/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozOSwibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6InRvbnlrYXIiLCJlbWFpbCI6InRvbnlrYXJAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTE2NzgxMSwiZXhwIjoxNzQ1MjU0MjExfQ.HKLcJnrJlIkjCIYUCRisNQhw3CJuXAa1r88J0DwJvhY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1NCwibmFtZSI6InRvbnkiLCJ1c2VybmFtZSI6ImJvYmkiLCJlbWFpbCI6ImJvYmlAdGVzdC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTI3ODg4MCwiZXhwIjoxNzQ1MzY1MjgwfQ.kHtuRAZSV24jo9dbwcv6a8xhTq5jX-VMI2LIGj-3-Mw
 
 
 ### Get users
@@ -33,3 +33,18 @@ content-type: application/json
   "username": "tonykar",
   "password": "12345"
 }
+
+### Update username
+PUT https://10.120.32.74/web-page/api/v1/users/57
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1MywibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6InRvbnlrYXIiLCJlbWFpbCI6InRvbnlrYXJAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTI3MDQxMiwiZXhwIjoxNzQ1MzU2ODEyfQ.jrfKBWV3e6nq7FFLvcUfOyCVbOOZKFBRFu1sdmUGj2M
+
+{
+  "password": "qwe123"
+}
+
+### Delete user account
+DELETE https://10.120.32.74/web-page/api/v1/au/54
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1NCwibmFtZSI6InRvbnkiLCJ1c2VybmFtZSI6ImJvYmkiLCJlbWFpbCI6ImJvYmlAdGVzdC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTI3NTY3NywiZXhwIjoxNzQ1MzYyMDc3fQ.hJmZ_882YZl-oHFC7z3gccM6jyYFTjoR1Scn7hKGkYQ
+
+

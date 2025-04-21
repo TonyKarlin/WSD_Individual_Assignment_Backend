@@ -43,7 +43,15 @@ const modifyUser = async (user, id) => {
   if (rows[0].affectedRows === 0) {
     return false;
   }
-  return {message: 'success'};
+  const [updatedUserRows] = await promisePool.execute(
+    'SELECT * FROM wsk_users WHERE user_id = ?',
+    [id]
+  );
+
+  if (updatedUserRows.length === 0) {
+    return false; // User not found after update
+  }
+  return {message: 'success', data: updatedUserRows[0]};
 };
 
 const removeUser = async (id) => {
