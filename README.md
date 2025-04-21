@@ -47,6 +47,7 @@ More information about the project in the [frontend repository](https://github.c
    npm install
    ```
 3. Configure environment variables in a `.env` file.
+
 4. Start the development server:
    ```bash
    npm start
