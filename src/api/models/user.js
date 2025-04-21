@@ -51,7 +51,7 @@ const modifyUser = async (user, id) => {
   if (updatedUserRows.length === 0) {
     return false; // User not found after update
   }
-  return {message: 'success', data: updatedUserRows[0]};
+  return updatedUserRows[0];
 };
 
 const removeUser = async (id) => {
