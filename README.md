@@ -6,7 +6,7 @@ This repository contains the backend implementation for the individual project o
 
 Server is accessible at [https://10.120.32.74/web-page/](https://10.120.32.74/web-page/)
 
-More info about the project in the frontend [repository](https://github.com/TonyKarlin/WSD_Individual_Assignment)
+More information about the project in the [frontend repository](https://github.com/TonyKarlin/WSD_Individual_Assignment)
 
 ### Feature
 
