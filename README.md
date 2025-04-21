@@ -27,7 +27,7 @@ More information about the project in the [frontend repository](https://github.c
 
 #### Authentication
 
-- `POST /api/v1/auth/login`: Authenticate user and retrieve a token.
+- `POST /api/v1/auth/login`: Authenticate user and retrieve a token. (stopped working for some reason...)
 - `GET /api/v1/auth/me`: Retrieve details of the authenticated user.
 
 ### Technologies Used
