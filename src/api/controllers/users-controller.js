@@ -43,41 +43,50 @@ const postUser = async (req, res, next) => {
 const putUser = async (req, res, next) => {
   console.log('PUT /users/:id endpoint hit');
   try {
-    const {currentPassword, newPassword, ...otherFields} = req.body;
+    const {currentPassword, newPassword, username, ...otherFields} = req.body;
 
-    if (!currentPassword || !newPassword) {
-      const error = new Error('Missing currentPassword or newPassword');
-      error.status = 400;
-      return next(error);
+    // If currentPassword and newPassword are provided, validate and update the password
+    if (currentPassword || newPassword) {
+      if (!currentPassword || !newPassword) {
+        const error = new Error('Missing currentPassword or newPassword');
+        error.status = 400;
+        return next(error);
+      }
+
+      const user = await findUserById(req.params.id);
+      if (!user) {
+        const error = new Error('User not found');
+        error.status = 404;
+        return next(error);
+      }
+
+      const isPasswordValid = await bcrypt.compare(
+        currentPassword,
+        user.password
+      );
+      if (!isPasswordValid) {
+        const error = new Error('Invalid current password');
+        error.status = 401;
+        return next(error);
+      }
+
+      const hashedPassword = bcrypt.hashSync(newPassword, 10);
+      otherFields.password = hashedPassword; // Add hashed password to the update fields
     }
 
-    const user = await findUserById(req.params.id);
-    if (!user) {
-      const error = new Error('User not found');
-      error.status = 404;
-      return next(error);
+    // Include username in the update fields if provided
+    if (username) {
+      otherFields.username = username;
     }
 
-    const isPasswordValid = await bcrypt.compare(
-      currentPassword,
-      user.password
-    );
-    if (!isPasswordValid) {
-      const error = new Error('Invalid current password');
-      error.status = 401;
-      return next(error);
-    }
-    const hashedPassword = bcrypt.hashSync(newPassword, 10);
-
-    const updatedUser = {...otherFields, password: hashedPassword};
-
-    const result = await modifyUser(updatedUser, req.params.id);
+    // Update the user in the database
+    const result = await modifyUser(otherFields, req.params.id);
     console.log(result);
+
     if (result) {
       res.status(200).json(result);
     } else {
-      res.sendStatus(500);
-      next(new Error('Error updating password'));
+      res.status(500).json({message: 'Error updating user'});
     }
   } catch (error) {
     console.error('Error in putUser:', error);

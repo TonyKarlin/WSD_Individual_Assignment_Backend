@@ -40,9 +40,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2MywibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6ImJvYmlpaSIsImVtYWlsIjoidG9ueWthckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ1MzE3NDEyLCJleHAiOjE3NDU0MDM4MTJ9.7QTnOan6W_ZY6Mx1sPKeQy9wBiQTum6dE6pcfDrR3fs
 
 {
-  "username": "testbob",
-  "currentPassword": "qwe123",
-  "newPassword": "asd123"
+  "username": "newUsername",
+  "currentPassword": "asd123",
+  "newPassword": "qwe123"
 }
 
 ### Delete user account
