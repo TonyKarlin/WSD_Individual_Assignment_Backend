@@ -13,13 +13,13 @@ POST https://10.120.32.74/web-page/api/v1/auth/login
 content-type: application/json
 
 {
-  "username": "test",
-  "password": "asd123"
+  "username": "bobiii",
+  "password": "qwe123"
 }
 
 ### Get my user info
 GET https://10.120.32.74/web-page/api/v1/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1NCwibmFtZSI6InRvbnkiLCJ1c2VybmFtZSI6ImJvYmkiLCJlbWFpbCI6ImJvYmlAdGVzdC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTI3ODg4MCwiZXhwIjoxNzQ1MzY1MjgwfQ.kHtuRAZSV24jo9dbwcv6a8xhTq5jX-VMI2LIGj-3-Mw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2MywibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6ImJvYmkiLCJlbWFpbCI6InRvbnlrYXJAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTMxMDM5OSwiZXhwIjoxNzQ1Mzk2Nzk5fQ.gqhohThxR8Fk49nuhYu_xl-Q_i40ot06raWH20gM4Bw
 
 
 ### Get users
@@ -37,15 +37,15 @@ content-type: application/json
 ### Update username
 PUT https://10.120.32.74/web-page/api/v1/users/63
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2MywibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRvbnlrYXJAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTMwOTg2MywiZXhwIjoxNzQ1Mzk2MjYzfQ.GzMqK0tDqCoEobrBjxia5wHoDrgVVQjadRfeLB9it6o
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2MywibmFtZSI6IlRvbnkiLCJ1c2VybmFtZSI6ImJvYmlpaSIsImVtYWlsIjoidG9ueWthckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQ1MzE3NDEyLCJleHAiOjE3NDU0MDM4MTJ9.7QTnOan6W_ZY6Mx1sPKeQy9wBiQTum6dE6pcfDrR3fs
 
 {
   "username": "bobi",
-  "password": "test123"
+  "password": "qwe123"
 }
 
 ### Delete user account
-DELETE https://10.120.32.74/web-page/api/v1/au/54
+DELETE https://10.120.32.74/web-page/api/v1/users/54
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1NCwibmFtZSI6InRvbnkiLCJ1c2VybmFtZSI6ImJvYmkiLCJlbWFpbCI6ImJvYmlAdGVzdC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc0NTI3NTY3NywiZXhwIjoxNzQ1MzYyMDc3fQ.hJmZ_882YZl-oHFC7z3gccM6jyYFTjoR1Scn7hKGkYQ
 
 

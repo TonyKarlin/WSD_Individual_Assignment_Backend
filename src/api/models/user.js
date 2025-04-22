@@ -1,6 +1,5 @@
 'use strict';
 import promisePool from '../../utils/database.js';
-import bcrypt from 'bcrypt';
 
 const listAllUsers = async () => {
   const [rows] = await promisePool.execute('SELECT * FROM wsk_users');
@@ -35,18 +34,16 @@ const addUser = async (user) => {
 };
 
 const modifyUser = async (user, id) => {
-  if (user.password) {
-    user.password = bcrypt.hashSync(user.password, 10); // Hash the password
-  }
   const sql = promisePool.format(`UPDATE wsk_users SET ? WHERE user_id = ?`, [
     user,
     id,
   ]);
   const rows = await promisePool.execute(sql);
-  console.log('rows', rows);
+
   if (rows[0].affectedRows === 0) {
-    return false;
+    return false; // No rows were updated
   }
+
   const [updatedUserRows] = await promisePool.execute(
     'SELECT * FROM wsk_users WHERE user_id = ?',
     [id]
@@ -55,7 +52,8 @@ const modifyUser = async (user, id) => {
   if (updatedUserRows.length === 0) {
     return false; // User not found after update
   }
-  return updatedUserRows[0];
+
+  return updatedUserRows[0]; // Return the updated user object
 };
 
 const removeUser = async (id) => {

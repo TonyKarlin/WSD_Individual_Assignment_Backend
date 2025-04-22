@@ -39,13 +39,51 @@ const postUser = async (req, res, next) => {
     res.sendStatus(400);
   }
 };
-const putUser = async (req, res) => {
-  const result = await modifyUser(req.body, req.params.id);
-  if (result.message) {
-    res.status(200);
-    res.json(result);
-  } else {
-    res.sendStatus(400);
+
+const putUser = async (req, res, next) => {
+  console.log('PUT /users/:id endpoint hit');
+  try {
+    const {currentPassword, newPassword, ...otherFields} = req.body;
+
+    if (!currentPassword || !newPassword) {
+      const error = new Error('Missing currentPassword or newPassword');
+      error.status = 400;
+      return next(error);
+    }
+
+    const user = await findUserById(req.params.id);
+    if (!user) {
+      const error = new Error('User not found');
+      error.status = 404;
+      return next(error);
+    }
+
+    const isPasswordValid = await bcrypt.compare(
+      currentPassword,
+      user.password
+    );
+    if (!isPasswordValid) {
+      const error = new Error('Invalid current password');
+      error.status = 401;
+      return next(error);
+    }
+    const hashedPassword = bcrypt.hashSync(newPassword, 10);
+
+    const updatedUser = {...otherFields, password: hashedPassword};
+
+    const result = await modifyUser(updatedUser, req.params.id);
+    console.log(result);
+    if (result) {
+      res
+        .status(200)
+        .json({message: 'Password updated successfully', user: result});
+    } else {
+      res.sendStatus(500);
+      next(new Error('Error updating password'));
+    }
+  } catch (error) {
+    console.error('Error in putUser:', error);
+    res.status(500).json({message: 'Internal server error'});
   }
 };
 
