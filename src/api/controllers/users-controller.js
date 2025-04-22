@@ -74,9 +74,7 @@ const putUser = async (req, res, next) => {
     const result = await modifyUser(updatedUser, req.params.id);
     console.log(result);
     if (result) {
-      res
-        .status(200)
-        .json({message: 'Password updated successfully', user: result});
+      res.status(200).json({result});
     } else {
       res.sendStatus(500);
       next(new Error('Error updating password'));
